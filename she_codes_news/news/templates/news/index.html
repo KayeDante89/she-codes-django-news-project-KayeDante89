@@ -7,15 +7,16 @@
 
 {% block content %}
     
-    <h2>Welcome Back, {{ user.username }}!</h2>
-    <a href="{% url 'news:newStory' %}">Write New Story</a>
+    <h2>Welcome <span class="purple-text">{{ user.username }}</span>!</h2>
+    <div id="create-story">
+        <a id="create-story-text" href="{% url 'news:newStory' %}">Write A New Story</a>
+    </div>  
     <br/>
     <h2>Latest Stories</h2>
     <div id="latest-stories">
         {% if latest_stories %}
             {% for story in latest_stories %}
                 {% include "./storyCard.html" with story=story position=forloop.counter %}
-            <!-- <p>{{ story.title }}</p> -->
             {% endfor %}
         {% else %}
             <p>No stories are available.</p>
@@ -28,7 +29,6 @@
         {% if latest_stories %}
             {% for story in all_stories %}
                 {% include "./storyCard.html" with story=story %}
-            <!-- <p>{{ story.title }}</p> -->
             {% endfor %}
         {% else %}
             <p>No stories are available.</p>

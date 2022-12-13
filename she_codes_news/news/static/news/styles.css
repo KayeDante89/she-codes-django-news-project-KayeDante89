@@ -2,7 +2,8 @@
 .story-card {
     margin: 2px;
     border: 1px solid #000;
-    padding: 5px;
+    padding: 15px;
+    background-color: #D5D8DC;
 }
 
 .story-card img {
@@ -11,9 +12,14 @@
     object-fit: cover;
 }
 
+#story-image {
+    padding-left: 40px;
+}
+
 #latest-stories {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    justify-items: right;
+    /* grid-template-columns: 2fr 1fr; */
     grid-template-rows: 1fr 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas: "left-1 right-1" "left-1 right-2" "left-1 right-3";
@@ -22,18 +28,29 @@
 
 #story-card-1 {
     grid-area: left-1;
+    width: 800px;
 }
 
 #story-card-2 {
     grid-area: right-1;
+    display: flex;
+    justify-self: left;
+    width: 500px;
 }
 
 #story-card-3 {
     grid-area: right-2;
+    display: flex;
+    justify-self: left;
+    width: 500px;
 }
 
 #story-card-4 {
     grid-area: right-3;
+    display: flex;
+    justify-self: left;
+    width: 500px;
+    object-fit: contain;
 }
 
 #story-card-2 a,

@@ -11,9 +11,12 @@
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }} - {{ story.pub_date }}</h4>
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
+        {% if story.image_url %}
+            <img id="story-image" src="{{ story.image_url }}">
+        {% endif %}
         {{ story.content|linebreaks }}
     </div>
+    <button type="submit"><a href="">Edit</a></button>
 </div>
 
 {% endblock %}

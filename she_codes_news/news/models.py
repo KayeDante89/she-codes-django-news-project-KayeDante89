@@ -10,3 +10,4 @@ class NewsStory(models.Model):
     )
     pub_date = models.DateTimeField()
     content = models.TextField()
+    image_url = models.URLField(max_length=400, null=True)

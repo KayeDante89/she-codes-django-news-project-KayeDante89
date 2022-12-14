@@ -18,7 +18,7 @@
         <p>Username: {{ user.username }}</p>
         <p>Email: {{ user.email }}</p>
         <p>Bio: {{ user.bio }}</p>
-        <a href="{% url 'users:editAccount' request.user.id %}">Edit Profile</a>
+        <a href="{% url 'users:editAccount' request.user.id %}"><button class="button1">Edit Profile</button></a>
     </div>
 </container>
 
@@ -26,7 +26,7 @@
 <div id="all-stories">
     {% if user_stories %}
         {% for story in user_stories %}
-            {% include "news/storyCard.html" with story=story position=forloop.counter %}
+            {% include "news/storyCard.html" with story=story %}
         {% endfor %}
     {% else %}
         <p>No stories are available.</p>

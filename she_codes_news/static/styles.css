@@ -9,8 +9,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
-    background-color: #fff;
+    /* border-bottom: 1px solid #000; */
+    background-color: #f2f2f2;
 }
 
 /* img {
@@ -46,7 +46,7 @@ h3 {
 }
 
 .purple-text {
-    color: purple;
+    color: rgb(167, 167, 249);
 }
 
 nav {
@@ -66,11 +66,11 @@ nav {
 }
 
 nav a:hover {
-    color: purple;
+    color: rgb(167, 167, 249);
 }
 
 a {
-    margin: 2px;
+    /* margin: 2px; */
     text-decoration: none;
     color: #000;
 }
@@ -121,7 +121,7 @@ a, p {
 
 
 .button1:hover {
-    background-color: purple;
+    background-color: rgb(130, 70, 174);
 }
 .button1 {
     width: 260px;
@@ -133,6 +133,10 @@ a, p {
     background-color: rgb(167, 167, 249);
 }
 
+.btn {
+    margin: 2px;
+}
+
 .center-items {
     display: flex;
     justify-content: center;
@@ -140,6 +144,9 @@ a, p {
 
 footer {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 13px;
     text-align: center;
     bottom: 0px;
@@ -161,4 +168,8 @@ footer {
 
 .profile-section {
     margin: 20px;
+}
+
+.help-text {
+    font-size: 10px;
 }

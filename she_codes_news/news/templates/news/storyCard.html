@@ -2,6 +2,8 @@
     <a href="{% url 'news:story' story.id %}">
         {% if story.image_url %}
             <img src="{{ story.image_url }}">
+        {% else %}
+            <img src="https://picsum.photos/300?random={{ story.id }}">
         {% endif %}
         <div class="story-card-text">
             <h3>{{ story.title }}</h3>

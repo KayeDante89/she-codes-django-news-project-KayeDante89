@@ -1,7 +1,7 @@
 
 .story-card {
     margin: 2px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     padding: 15px;
     background-color: #D5D8DC;
 }
@@ -19,7 +19,6 @@
 #latest-stories {
     display: grid;
     justify-items: right;
-    /* grid-template-columns: 2fr 1fr; */
     grid-template-rows: 1fr 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas: "left-1 right-1" "left-1 right-2" "left-1 right-3";

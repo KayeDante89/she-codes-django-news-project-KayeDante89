@@ -8,7 +8,7 @@
 {% block content %}
 
     {% if request.user.is_authenticated %}
-    <container id="form-box">
+    <container class="form-box">
         <form id="form" action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form">

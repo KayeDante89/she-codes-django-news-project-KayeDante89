@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400&family=Open+Sans&display=swap');
 
 body {
     background-color: #fff;
@@ -26,14 +26,14 @@ header {
 }
 
 h1 {
-    font-family: 'Montserrat Subrayada', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     text-decoration: none;
     font-size: 4rem;
     margin: 0;
 }
 
 h2 {
-   font-family: 'Montserrat Subrayada', sans-serif;
+   font-family: 'Open Sans', sans-serif;
    font-size: 2rem;
 }
 
@@ -69,7 +69,7 @@ a {
 }
 
 a, p {
-    font-family: monospace;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #form {
@@ -77,7 +77,7 @@ a, p {
     padding: 5rem;
 }
 
-#form-box {
+.form-box, .login-button {
     display: flex;
     justify-content: center;
 }
@@ -85,7 +85,14 @@ a, p {
 #id_image_url,
 #id_content,
 #id_pub_date,
-#id_title {
+#id_title,
+#id_email,
+#id_bio,
+#id_profile_picture,
+#id_password1,
+#id_password2,
+#id_username,
+#id_password {
     width: 500px;
     padding: 15px;
     display: flex;

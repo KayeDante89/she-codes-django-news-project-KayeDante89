@@ -10,25 +10,16 @@
     <h2>Welcome <span class="purple-text">{{ user.username }}</span>!</h2>
     <div id="create-story">
         <a id="create-story-text" href="{% url 'news:newStory' %}">Write A New Story</a>
-    </div>  
+    </div>
+    <div id="create-story">
+        <a id="create-story-text" href="{% url 'news:allStories' %}">See All Stories</a>
+    </div>
     <br/>
     <h2>Latest Stories</h2>
     <div id="latest-stories">
         {% if latest_stories %}
             {% for story in latest_stories %}
                 {% include "./storyCard.html" with story=story position=forloop.counter %}
-            {% endfor %}
-        {% else %}
-            <p>No stories are available.</p>
-        {% endif %}
-    </div>
-
-    <h2>All Stories</h2>
-
-    <div id="all-stories">
-        {% if latest_stories %}
-            {% for story in all_stories %}
-                {% include "./storyCard.html" with story=story %}
             {% endfor %}
         {% else %}
             <p>No stories are available.</p>

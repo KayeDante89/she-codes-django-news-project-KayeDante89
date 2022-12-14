@@ -16,7 +16,7 @@
         {% endif %}
         {{ story.content|linebreaks }}
     </div>
-    <button type="submit"><a href="">Edit</a></button>
+    <button type="submit"><a href="{% url 'news:editStory' story.id %}">Edit</a></button>
 </div>
 
 {% endblock %}

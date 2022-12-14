@@ -16,7 +16,26 @@
         {% endif %}
         {{ story.content|linebreaks }}
     </div>
-    <button type="submit"><a href="{% url 'news:editStory' story.id %}">Edit</a></button>
+    {% if story.author in user.username %}
+        <button type="submit"><a href="{% url 'news:editStory' story.id %}">Edit</a></button>
+    {% endif %}
+</div>
+<div id="comment">
+    <div>
+        <form method="POST" action="{% url 'news:addComment' story.id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Comment</button>
+        </form>
+    </div>
+
+    <p><a href="{% url 'news:addComment' story.id %}">Add a Comment</a></p>
+    <ul>
+    {% for comment in story.comments.all %}
+        <li>{{ comment.author.username }} {{ comment.created_at }}: {{ comment.content }}
+    {% endfor %}
+    </ul>
+       
 </div>
 
 {% endblock %}

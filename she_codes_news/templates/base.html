@@ -15,11 +15,9 @@
 
     <body>
         <header>
-            <div id="header-text">
-                <a id="header-link" href="{% url 'news:index' %}">
-                    <img src="{% static 'news/images/logo.png' %}">
-                </a>
-            </div>
+            <a id="header-link" href="{% url 'news:index' %}">
+                <img src="{% static 'news/images/logo.png' %}">
+            </a>
             {% include './nav.html' %}
         </header>
         {% block content %}{% endblock %}

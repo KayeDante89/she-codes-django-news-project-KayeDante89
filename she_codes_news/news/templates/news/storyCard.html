@@ -1,14 +1,14 @@
 <div class="story-card" id="story-card-{{ position }}">
     <a href="{% url 'news:story' story.id %}">
-        {% if story.image_url %}
-            <img src="{{ story.image_url }}">
-        {% else %}
-            <img src="https://picsum.photos/300?random={{ story.id }}">
-        {% endif %}
         <div class="story-card-text">
             <h3>{{ story.title }}</h3>
             <h4>{{ story.author }}</h4>
             <h4>{{ story.pub_date }}</h4>
         </div>
+    {% if story.image_url %}
+        <img src="{{ story.image_url }}">
+    {% else %}
+        <img src="https://picsum.photos/300?random={{ story.id }}">
+    {% endif %}
     </a>
 </div>

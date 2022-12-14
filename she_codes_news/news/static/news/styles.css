@@ -12,6 +12,10 @@
     object-fit: cover;
 }
 
+.story-card-text {
+    width: 30vw;
+}
+
 #story-image {
     padding-left: 40px;
 }
@@ -76,7 +80,7 @@
 #story-card-2 img,
 #story-card-3 img,
 #story-card-4 img {
-    width: 33%;
+    /* width: 33%; */
     height: 100%;
     margin-right: 5px;
 }

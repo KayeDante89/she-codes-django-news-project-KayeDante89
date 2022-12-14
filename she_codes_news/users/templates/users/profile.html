@@ -6,16 +6,21 @@
 {% endblock %}
 
 {% block content %}
-<h2>{{ user.username }} Profile Page</h2>
+<h2><span class="purple-text">{{ user.username }}</span> Profile Page</h2>
 
-<img src="{{ user.profile_picture }}"
-<p>Name: {{ user.first_name }}</p>
-<p>Last Name: {{ user.last_name }}</p>
-<p>Username: {{ user.username }}</p>
-<p>Email: {{ user.email }}</p>
-<p>Bio: {{ user.bio }}</p>
-
-<a href="{% url 'users:editAccount' request.user.id %}">Edit Profile</a>
+<container id="profile-content">
+    <div class="profile-section">
+        <img id="profile-pic" src="{{ user.profile_picture }}">
+    </div>
+    <div class="profile-section">
+        <p>Name: {{ user.first_name }}</p>
+        <p>Last Name: {{ user.last_name }}</p>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Bio: {{ user.bio }}</p>
+        <a href="{% url 'users:editAccount' request.user.id %}">Edit Profile</a>
+    </div>
+</container>
 
 <h2>My Stories</h2>
 <div id="all-stories">

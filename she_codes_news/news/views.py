@@ -3,6 +3,8 @@ from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
 from .models import NewsStory
 from .forms import StoryForm, CommentForm
+from django.contrib.auth import get_user_model
+
 
 
 
@@ -81,6 +83,13 @@ class AddCommentView(generic.CreateView):
     def get_success_url(self):
         pk = self.kwargs.get("pk")
         return reverse_lazy("news:story", kwargs={"pk":pk})
+
+class DeleteStoryView(generic.DeleteView):
+    model = NewsStory
+    template_name = 'news/deleteStory.html'
+    success_url = reverse_lazy('news:index')
+    
+    
 
     
 

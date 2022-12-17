@@ -5,7 +5,6 @@ from .models import CustomUser
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from news.models import NewsStory
 
-
 class CreateAccountView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
@@ -28,3 +27,5 @@ class Profile(generic.DetailView):
         context = super().get_context_data(**kwargs)
         context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk']).order_by('-pub_date')
         return context
+
+    

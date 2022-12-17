@@ -3,6 +3,7 @@
 
 body {
     background-color: #fff;
+    margin-bottom: 60px;
 }
 
 header {
@@ -115,7 +116,7 @@ a, p {
 }
 
 #id_content {
-    height: 200px;
+    height: 130px;
     text-align: left;
 }
 
@@ -127,6 +128,24 @@ a, p {
     width: 260px;
     height: 40px;
     margin-top: 20px;
+    border-radius: 60px;
+    border: 0;
+    padding: 8px;
+    color: white;
+    background-color: rgb(167, 167, 249);
+}
+
+.edit-delete-button {
+    color: rgb(167, 167, 249);
+}
+
+.edit-delete-button:hover {
+    color:rgb(130, 70, 174);
+}
+
+#add-comment-button {
+    width: 260px;
+    height: 40px;
     border: 0;
     padding: 8px;
     color: white;
@@ -143,7 +162,7 @@ a, p {
 }
 
 footer {
-    position: relative;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -172,4 +191,24 @@ footer {
 
 .help-text {
     font-size: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    width: 800px;
+}
+
+.comment-author {
+    font-weight: bold;
+    padding: 10px;
+    color: rgb(130, 70, 174);
+    background-color: #f2f2f2;
+    margin-right: 50px;
+}
+
+.comment-tag {
+    border-bottom: 1px solid rgba(112, 112, 112, 0.251);
 }

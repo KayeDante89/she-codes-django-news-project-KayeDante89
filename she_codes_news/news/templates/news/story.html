@@ -9,35 +9,38 @@
 
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }} - {{ story.pub_date }}</h4>
+    {% if request.user.is_authenticated %}
+        <h4><a href="{% url 'users:profile' story.author.id %}">{{ story.author }}</a> - {{ story.pub_date|date:'d M y' }}</h4>
+    {% else %}
+        <h4>{{ story.author }} - {{ story.pub_date|date:'d M y' }}</h4>
+    {% endif %}
+    <a href="{% url 'news:editStory' story.id %} " class="edit-delete-button">EDIT</a>&emsp;|&emsp;<a href="{% url 'news:deleteStory' story.id %}" class="edit-delete-button">DELETE</a>
     <div id="story-content">
         {% if story.image_url %}
             <img id="story-image" src="{{ story.image_url }}">
         {% endif %}
         {{ story.content|linebreaks }}
     </div>
-    {% if request.user.is_author %}
-        <button type="submit"><a href="{% url 'news:editStory' story.id %}">Edit</a></button>
-    {% endif %}
+        
 </div>
-<container class="center-items">
-    <div>
-        <form method="POST" action="{% url 'news:addComment' story.id %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="button1" type="submit">Add Comment</button>
-        </form>
-    </div>
-    
-    <ul>
-    {% for comment in story.comments.all %}
-        <li class="comment-tag">
-            <p>{{ comment.author.username }} {{ comment.created_at }}:</p>
-            <p>{{ comment.content }}</p>
-        </li>
-    {% endfor %}
-    </ul>
-</container>   
+
+<div id="comment-form">
+    <form method="POST" action="{% url 'news:addComment' story.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        &emsp;<button id="add-comment-button" type="submit">Add Comment</button>
+    </form>
+</div>
+
+<ul>
+{% for comment in story.comments.all %}
+    <li class="comment-tag">
+        <p class="comment-author">{{ comment.author.username }} {{ comment.created_at }}:</p>
+        <p>&emsp;{{ comment.content }}</p>
+    </li>
+{% endfor %}
+</ul>
+
 </div>
 
 {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<!-- <h2><span class="purple-text">{{ user.username }}</span> Profile Page</h2> -->
+
+{{ customuser.username }}
+<ul>
+{% for story in customuser.newsstory_set.all %}
+    <li>{{ story.title }}</li>
+{% endfor %}
+</ul>
+
+<!-- <h2>My Stories</h2>
+<div id="all-stories">
+    {% if user_stories %}
+        {% for story in user_stories %}
+            {% include "news/storyCard.html" with story=story %}
+        {% endfor %}
+    {% else %}
+        <p>No stories are available.</p>
+    {% endif %}
+</div> -->
+
+
+{% endblock %}

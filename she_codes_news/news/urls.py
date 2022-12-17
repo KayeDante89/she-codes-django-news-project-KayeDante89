@@ -11,4 +11,5 @@ urlpatterns = [
     path('all-stories/', views.AllStoriesView.as_view(), name="allStories"),
     path('<int:pk>/edit-story/', views.EditStoryView.as_view(), name="editStory"),
     path('<int:pk>/comment/', views.AddCommentView.as_view(), name="addComment"),
+    path('<int:pk>/delete/', views.DeleteStoryView.as_view(), name="deleteStory"),
 ]

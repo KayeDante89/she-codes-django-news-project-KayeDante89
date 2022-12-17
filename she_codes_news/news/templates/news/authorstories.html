@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <h2>Author Stories</h2>
+        
+        <div id="latest_stories">
+            {% if stories %}
+                {% for story in stories %}
+                    {% include "./storyCard.html" with story=story %}
+                    <!-- <p>{{ story.title }}</p> -->
+                {% endfor %}
+            {% else %}
+                <p>No stories are available.</p>
+            {% endif %}
+        </div>
+
+{% endblock %}

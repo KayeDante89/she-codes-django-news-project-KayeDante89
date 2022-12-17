@@ -7,23 +7,23 @@
 
 {% block content %}
 
-<h2><span class="purple-text">{{ user.username }}</span> Profile Page</h2>
+<h2><span class="purple-text">{{ profile.username }}</span> Profile Page</h2>
 
 <container id="profile-content">
     <div class="profile-section">
-        <img id="profile-pic" src="{{ user.profile_picture }}">
+        <img id="profile-pic" src="{{ profile.profile_picture }}">
     </div>
     <div class="profile-section">
-        <p>Name: {{ user.first_name }}</p>
-        <p>Last Name: {{ user.last_name }}</p>
-        <p>Username: {{ user.username }}</p>
-        <p>Email: {{ user.email }}</p>
-        <p>Bio: {{ user.bio }}</p>
+        <p>Name: {{ profile.first_name }}</p>
+        <p>Last Name: {{ profile.last_name }}</p>
+        <p>Username: {{ profile.username }}</p>
+        <p>Email: {{ profile.email }}</p>
+        <p>Bio: {{ profile.bio }}</p>
         <a href="{% url 'users:editAccount' request.user.id %}"><button class="button1">Edit Profile</button></a>
     </div>
 </container>
 
-<h2>My Stories</h2>
+<h2>{{ profile.username }}'s Stories</h2>
 <div id="all-stories">
     {% if user_stories %}
         {% for story in user_stories %}

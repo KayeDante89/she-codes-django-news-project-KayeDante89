@@ -21,11 +21,9 @@ class EditAccountView(generic.UpdateView):
 class Profile(generic.DetailView):
     model = CustomUser
     template_name = 'users/profile.html'
-    context_object_name = 'users'
+    context_object_name = 'profile'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user_stories'] = NewsStory.objects.filter(author=self.kwargs['pk']).order_by('-pub_date')
         return context
-
-    

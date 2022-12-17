@@ -12,9 +12,11 @@
     {% if request.user.is_authenticated %}
         <h4><a href="{% url 'users:profile' story.author.id %}">{{ story.author }}</a> - {{ story.pub_date|date:'d M y' }}</h4>
     {% else %}
-        <h4>{{ story.author }} - {{ story.pub_date|date:'d M y' }}</h4>
+        <h4><a href="{% url 'news:authorstories' story.author.id %}">{{ story.author }}</a> - {{ story.pub_date|date:'d M y' }}</h4>
     {% endif %}
-    <a href="{% url 'news:editStory' story.id %} " class="edit-delete-button">EDIT</a>&emsp;|&emsp;<a href="{% url 'news:deleteStory' story.id %}" class="edit-delete-button">DELETE</a>
+    {% if story.author == request.user %}
+        <a href="{% url 'news:editStory' story.id %} " class="edit-delete-button">EDIT</a>&emsp;|&emsp;<a href="{% url 'news:deleteStory' story.id %}" class="edit-delete-button">DELETE</a>
+    {% endif %}
     <div id="story-content">
         {% if story.image_url %}
             <img id="story-image" src="{{ story.image_url }}">

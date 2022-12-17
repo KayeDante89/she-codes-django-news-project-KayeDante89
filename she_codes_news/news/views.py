@@ -88,6 +88,13 @@ class DeleteStoryView(generic.DeleteView):
     model = NewsStory
     template_name = 'news/deleteStory.html'
     success_url = reverse_lazy('news:index')
+
+class AuthorStories(generic.ListView):
+    template_name = 'news/authorstories.html'
+    context_object_name = 'stories'
+
+    def get_queryset(self):
+        return NewsStory.objects.filter(author=self.kwargs['pk'])
     
     
 

@@ -1,7 +1,7 @@
 from django.views import generic
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
-from .models import NewsStory
+from .models import NewsStory, Comment
 from .forms import StoryForm, CommentForm
 from django.contrib.auth import get_user_model
 
@@ -83,6 +83,31 @@ class AddCommentView(generic.CreateView):
     def get_success_url(self):
         pk = self.kwargs.get("pk")
         return reverse_lazy("news:story", kwargs={"pk":pk})
+
+class EditCommentView(generic.UpdateView):
+    form_class = CommentForm
+    model = Comment
+    template_name = "news/createComment.html"
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        comment = Comment.objects.get(id=self.kwargs.get("pk"))
+        pk = comment.story.id
+        story = get_object_or_404(NewsStory, pk=pk)
+        form.instance.story = story
+        return super().form_valid(form)
+    
+    def get_success_url(self):
+        comment = Comment.objects.get(id=self.kwargs.get("pk"))
+        return reverse_lazy("news:story", kwargs={"pk":comment.story.id})
+
+class DeleteCommentView(generic.DeleteView):
+    model = Comment
+    template_name = 'news/deleteComment.html'
+
+    def get_success_url(self):
+        comment = Comment.objects.get(id=self.kwargs.get("pk"))
+        return reverse_lazy("news:story", kwargs={"pk":comment.story.id})
 
 class DeleteStoryView(generic.DeleteView):
     model = NewsStory

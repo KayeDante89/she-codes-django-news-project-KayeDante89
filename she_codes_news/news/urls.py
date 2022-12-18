@@ -13,4 +13,6 @@ urlpatterns = [
     path('<int:pk>/comment/', views.AddCommentView.as_view(), name="addComment"),
     path('author/<int:pk>/stories', views.AuthorStories.as_view(), name='authorstories'),
     path('<int:pk>/delete/', views.DeleteStoryView.as_view(), name="deleteStory"),
+    path('<int:pk>/edit-comment/', views.EditCommentView.as_view(), name="editComment"),
+    path('<int:pk>/delete-comment', views.DeleteCommentView.as_view(), name="deleteComment")
 ]

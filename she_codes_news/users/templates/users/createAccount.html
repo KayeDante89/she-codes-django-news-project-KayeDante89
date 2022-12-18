@@ -2,7 +2,7 @@
 
 {% block content %}
     <container class="form-box">
-        <form action="" method="post">
+        <form id="form" action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <div>

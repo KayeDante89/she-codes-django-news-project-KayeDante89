@@ -26,6 +26,7 @@
         
 </div>
 
+{% if request.user.is_authenticated %}
 <div id="comment-form">
     <form method="POST" action="{% url 'news:addComment' story.id %}">
         {% csrf_token %}
@@ -33,12 +34,16 @@
         &emsp;<button id="add-comment-button" type="submit">Add Comment</button>
     </form>
 </div>
+{% endif %}
 
 <ul>
 {% for comment in story.comments.all %}
     <li class="comment-tag">
         <p class="comment-author">{{ comment.author.username }} {{ comment.created_at }}:</p>
         <p>&emsp;{{ comment.content }}</p>
+        {% if comment.author == request.user %}
+            <a href="{% url 'news:editComment' comment.id %}" class="edit-delete-button">Edit</a>&emsp;|&emsp;<a href="{% url 'news:deleteComment' comment.id %}" class="edit-delete-button">Delete</a>
+        {% endif %}
     </li>
 {% endfor %}
 </ul>

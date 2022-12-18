@@ -82,10 +82,13 @@ a, p {
 
 #form {
     text-align: center;
-    padding: 5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.form-box, .login-button {
+.form-box, .comment-form, .login-button {
     display: flex;
     justify-content: center;
 }
@@ -99,12 +102,19 @@ a, p {
 #id_profile_picture,
 #id_password1,
 #id_password2,
-#id_username,
-#id_password {
+#id_username {
     width: 500px;
     padding: 15px;
     display: flex;
     justify-content: end;
+    margin: 10px;
+}
+
+#id_password {
+    width: 500px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
     margin: 10px;
 }
 
